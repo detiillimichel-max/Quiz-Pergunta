@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+.glass { @apply bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl; }
+.glass-btn { @apply glass rounded-2xl px-6 py-3 font-semibold transition-all active:scale-95 disabled:opacity-50; }
+}
