@@ -1,0 +1,100 @@
+{
+  "nichos": [
+    {
+      "id": "azul",
+      "nome": "Tecnologia",
+      "cor": "#3B82F6",
+      "icone": "💻",
+      "fases": [
+        {
+          "id": 1,
+          "nome": "Fundamentos",
+          "perguntas": [
+            { "id": "a1-1", "texto": "Linguagem que criou o React?", "resposta": "javascript", "dica": "Começa com J" },
+            { "id": "a1-2", "texto": "Significado de HTML?", "resposta": "hypertext markup language", "dica": "Marcação" },
+            { "id": "a1-3", "texto": "Significado de CSS?", "resposta": "cascading style sheets", "dica": "Estilo" },
+            { "id": "a1-4", "texto": "Banco de dados SQL mais usado?", "resposta": "mysql", "dica": "Tem golfinho" },
+            { "id": "a1-5", "texto": "Framework CSS utility-first?", "resposta": "tailwind", "dica": "Vento" },
+            { "id": "a1-6", "texto": "Sistema de controle de versão?", "resposta": "git", "dica": "3 letras" },
+            { "id": "a1-7", "texto": "Empresa criadora do TypeScript?", "resposta": "microsoft", "dica": "Windows" },
+            { "id": "a1-8", "texto": "Porta padrão do HTTP?", "resposta": "80", "dica": "Número" },
+            { "id": "a1-9", "texto": "Porta padrão do HTTPS?", "resposta": "443", "dica": "Número" },
+            { "id": "a1-10", "texto": "Formato de dados do JavaScript?", "resposta": "json", "dica": "4 letras" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "verde",
+      "nome": "Natureza",
+      "cor": "#10B981",
+      "icone": "🌿",
+      "fases": [
+        {
+          "id": 1,
+          "nome": "Planeta Terra",
+          "perguntas": [
+            { "id": "v1-1", "texto": "Maior floresta do mundo?", "resposta": "amazonia", "dica": "Brasil" },
+            { "id": "v1-2", "texto": "Gás que respiramos?", "resposta": "oxigenio", "dica": "O2" },
+            { "id": "v1-3", "texto": "Maior oceano?", "resposta": "pacifico", "dica": "Nome de paz" },
+            { "id": "v1-4", "texto": "Planeta azul?", "resposta": "terra", "dica": "Onde vivemos" },
+            { "id": "v1-5", "texto": "Estrela do sistema solar?", "resposta": "sol", "dica": "3 letras" },
+            { "id": "v1-6", "texto": "Satélite natural da Terra?", "resposta": "lua", "dica": "3 letras" },
+            { "id": "v1-7", "texto": "Animal mais rápido?", "resposta": "guepardo", "dica": "Felino" },
+            { "id": "v1-8", "texto": "Maior mamífero?", "resposta": "baleia azul", "dica": "Mar" },
+            { "id": "v1-9", "texto": "Processo das plantas com luz?", "resposta": "fotossintese", "dica": "Foto" },
+            { "id": "v1-10", "texto": "Camada que protege dos raios UV?", "resposta": "ozonio", "dica": "O3" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vermelho",
+      "nome": "História",
+      "cor": "#EF4444",
+      "icone": "📜",
+      "fases": [
+        {
+          "id": 1,
+          "nome": "Brasil",
+          "perguntas": [
+            { "id": "vm1-1", "texto": "Ano do descobrimento do Brasil?", "resposta": "1500", "dica": "Número" },
+            { "id": "vm1-2", "texto": "Quem gritou Independência ou Morte?", "resposta": "dom pedro", "dica": "Imperador" },
+            { "id": "vm1-3", "texto": "Capital do Brasil?", "resposta": "brasilia", "dica": "Planejada" },
+            { "id": "vm1-4", "texto": "Proclamou a República?", "resposta": "deodoro da fonseca", "dica": "Marechal" },
+            { "id": "vm1-5", "texto": "Lei Áurea assinada por?", "resposta": "princesa isabel", "dica": "Princesa" },
+            { "id": "vm1-6", "texto": "Dia da Independência?", "resposta": "7 de setembro", "dica": "Setembro" },
+            { "id": "vm1-7", "texto": "Primeiro presidente do Brasil?", "resposta": "deodoro da fonseca", "dica": "Marechal" },
+            { "id": "vm1-8", "texto": "Grito do Ipiranga foi em que estado?", "resposta": "sao paulo", "dica": "SP" },
+            { "id": "vm1-9", "texto": "Tiradentes era de qual estado?", "resposta": "minas gerais", "dica": "MG" },
+            { "id": "vm1-10", "texto": "Quem descobriu o Brasil?", "resposta": "pedro alvares cabral", "dica": "Português" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "roxo",
+      "nome": "Cultura Pop",
+      "cor": "#A855F7",
+      "icone": "🎬",
+      "fases": [
+        {
+          "id": 1,
+          "nome": "Cinema",
+          "perguntas": [
+            { "id": "r1-1", "texto": "Diretor de Titanic?", "resposta": "james cameron", "dica": "Avatar" },
+            { "id": "r1-2", "texto": "Herói com martelo?", "resposta": "thor", "dica": "Deus do trovão" },
+            { "id": "r1-3", "texto": "Saga com sabres de luz?", "resposta": "star wars", "dica": "Guerra nas estrelas" },
+            { "id": "r1-4", "texto": "Bruxo da cicatriz?", "resposta": "harry potter", "dica": "Hogwarts" },
+            { "id": "r1-5", "texto": "Robô do futuro Exterminador?", "resposta": "terminator", "dica": "Arnold" },
+            { "id": "r1-6", "texto": "Nave de Star Trek?", "resposta": "enterprise", "dica": "Empresa" },
+            { "id": "r1-7", "texto": "Ator do Homem de Ferro?", "resposta": "robert downey jr", "dica": "RDJ" },
+            { "id": "r1-8", "texto": "Filme com dinossauros no parque?", "resposta": "jurassic park", "dica": "Jurássico" },
+            { "id": "r1-9", "texto": "Boneco assassino?", "resposta": "chucky", "dica": "Brinquedo" },
+            { "id": "r1-10", "texto": "Cidade do Batman?", "resposta": "gotham", "dica": "Gótica" }
+          ]
+        }
+      ]
+    }
+  ]
+}
