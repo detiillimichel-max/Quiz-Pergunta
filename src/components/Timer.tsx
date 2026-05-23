@@ -3,15 +3,16 @@ import { motion } from 'framer-motion'
 import { useGameStore } from '../store/useGameStore'
 
 export default function Timer() {
-  const { tempo, tick, estado } = useGameStore()
+  const { tempo, tick, estado, faseId } = useGameStore()
 
   useEffect(() => {
-    if (estado!== 'gameplay') return
+    if (estado !== 'gameplay') return
     const interval = setInterval(tick, 1000)
     return () => clearInterval(interval)
   }, [estado, tick])
 
-  const cor = tempo <= 5? '#EF4444' : tempo <= 10? '#F59E0B' : '#10B981'
+  const tempoMaximo = 25 // 25 segundos fixo pra todas as fases
+  const cor = tempo <= 5 ? '#EF4444' : tempo <= 15 ? '#F59E0B' : '#10B981'
 
   return (
     <div className="text-center">
@@ -29,7 +30,7 @@ export default function Timer() {
           className="h-full rounded-full"
           style={{ backgroundColor: cor }}
           initial={{ width: '100%' }}
-          animate={{ width: `${(tempo / 15) * 100}%` }}
+          animate={{ width: `${(tempo / tempoMaximo) * 100}%` }}
           transition={{ duration: 1, ease: 'linear' }}
         />
       </div>
