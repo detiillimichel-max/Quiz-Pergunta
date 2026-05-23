@@ -40,12 +40,13 @@ export const useGameStore = create<GameState>()(
       perguntaIndex: 0,
       pontos: 0,
       erros: 0,
-      tempo: 15,
+      tempo: 25,
       progresso: { fasesDesbloqueadas: {}, totalPontos: 0 },
       setEstado: (estado) => set({ estado }),
       setNicho: (id) => {
         const faseDesbloqueada = get().progresso.fasesDesbloqueadas[id] || 1
-        set({ nichoId: id, estado: 'gameplay', faseId: faseDesbloqueada, perguntaIndex: 0, erros: 0, tempo: 15, pontos: 0 })
+        const tempoInicial = faseDesbloqueada === 1? 25 : 15
+        set({ nichoId: id, estado: 'gameplay', faseId: faseDesbloqueada, perguntaIndex: 0, erros: 0, tempo: tempoInicial, pontos: 0 })
       },
       proximaFase: () => {
         const { nichoId, faseId, pontos } = get()
@@ -56,10 +57,11 @@ export const useGameStore = create<GameState>()(
           set({ estado: 'vitoria' })
           return
         }
+        const tempoInicial = novaFase === 1? 25 : 15
         set((s) => ({
           faseId: novaFase,
           perguntaIndex: 0,
-          tempo: 15,
+          tempo: tempoInicial,
           progresso: {
             fasesDesbloqueadas: {...s.progresso.fasesDesbloqueadas, [nichoId]: novaFase },
             totalPontos: s.progresso.totalPontos + pontos
@@ -68,10 +70,11 @@ export const useGameStore = create<GameState>()(
       },
       proximaPergunta: () => {
         const fase = get().getFaseAtual()
+        const tempoInicial = get().faseId === 1? 25 : 15
         if (get().perguntaIndex + 1 >= fase?.perguntas.length) {
           set({ estado: 'fase_concluida' })
         } else {
-          set((s) => ({ perguntaIndex: s.perguntaIndex + 1, tempo: 15 }))
+          set((s) => ({ perguntaIndex: s.perguntaIndex + 1, tempo: tempoInicial }))
         }
       },
       acertar: () => {
@@ -91,7 +94,8 @@ export const useGameStore = create<GameState>()(
         set((s) => {
           if (s.tempo <= 1) {
             get().errar()
-            return { tempo: 15 }
+            const tempoInicial = get().faseId === 1? 25 : 15
+            return { tempo: tempoInicial }
           }
           return { tempo: s.tempo - 1 }
         })
@@ -103,7 +107,7 @@ export const useGameStore = create<GameState>()(
         perguntaIndex: 0,
         pontos: 0,
         erros: 0,
-        tempo: 15
+        tempo: 25
       }),
       getPerguntaAtual: () => {
         const { nichoId, faseId, perguntaIndex } = get()
