@@ -26,7 +26,7 @@ export default function Apresentacao() {
             <div className="text-white/60">Pontos totais</div>
           </div>
           <div className="glass rounded-xl p-3">
-            <div className="text-2xl font-bold">15s</div>
+            <div className="text-2xl font-bold">25s</div>
             <div className="text-white/60">Por pergunta</div>
           </div>
         </div>
