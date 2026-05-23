@@ -7,8 +7,8 @@ Esse jogo é um quiz de perguntas e respostas estilo "show do milhão" com visua
 ### 🧠 **400 desafios únicos**
 4 nichos diferentes: Tecnologia, Natureza, História e Cultura Pop. Cada nicho tem 10 fases com 10 perguntas cada.
 
-### ⏱️ **Timer de 15 segundos**
-Cada pergunta tem 15s pra responder. A barra diminui e muda de cor: verde → amarelo → vermelho. Se zerar, perde 1 vida.
+### ⏱️ **Timer de 25 segundos**
+Cada pergunta tem 25 s pra responder. A barra diminui e muda de cor: verde → amarelo → vermelho. Se zerar, perde 1 vida.
 
 ### ❤️ **Sistema de 3 vidas**
 Errou 3 vezes na mesma fase = Game Over. Tem que recomeçar a fase do zero.
