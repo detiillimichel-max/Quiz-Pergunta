@@ -8,7 +8,8 @@ import banco from '../data/banco.json'
 export default function GameBoard() {
   const {
     estado, setNicho, getPerguntaAtual, getNichoAtual, getFaseAtual,
-    pontos, erros, faseId, perguntaIndex, setEstado, proximaFase, resetarJogo
+    pontos, erros, faseId, perguntaIndex, setEstado, proximaFase, resetarJogo,
+    acertos
   } = useGameStore()
 
   if (estado === 'selecao_nicho') {
@@ -38,15 +39,45 @@ export default function GameBoard() {
   }
 
   if (estado === 'game_over') {
+    const acertouTudo = acertos === 10 && erros === 0
+
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center p-4 text-white">
         <GlassCard className="max-w-md w-full text-center space-y-6">
-          <div className="text-7xl">💀</div>
-          <h2 className="text-4xl font-black">Game Over</h2>
-          <p className="text-xl">Você fez <span className="font-bold text-yellow-400">{pontos}</span> pontos</p>
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            className="text-7xl"
+          >
+            {acertouTudo? '🏆' : '💀'}
+          </motion.div>
+          <h2 className="text-4xl font-black">
+            {acertouTudo? 'Fase Completa!' : 'Game Over'}
+          </h2>
+          <p className="text-xl">
+            Você fez <span className="font-bold text-yellow-400">{pontos}</span> pontos
+          </p>
+
+          {acertouTudo && (
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.3 }}
+              className="glass rounded-xl p-4 bg-yellow-500/20 border border-yellow-400/50"
+            >
+              <div className="text-2xl">🎁 Presente desbloqueado!</div>
+              <div className="text-sm text-white/80">+100 pontos bônus</div>
+            </motion.div>
+          )}
+
           <div className="flex gap-3">
             <button onClick={resetarJogo} className="glass-btn flex-1">Menu</button>
-            <button onClick={() => setEstado('selecao_nicho')} className="glass-btn flex-1">Tentar Outro</button>
+            <button
+              onClick={() => acertouTudo? proximaFase() : setEstado('selecao_nicho')}
+              className={`glass-btn flex-1 ${acertouTudo? 'bg-green-500/30' : ''}`}
+            >
+              {acertouTudo? 'Próxima Fase' : 'Tentar Outro'}
+            </button>
           </div>
         </GlassCard>
       </div>
@@ -60,6 +91,10 @@ export default function GameBoard() {
           <div className="text-7xl">🏆</div>
           <h2 className="text-4xl font-black">Fase {faseId} Completa!</h2>
           <p className="text-xl">Pontos da fase: <span className="font-bold text-green-400">{pontos}</span></p>
+          <div className="glass rounded-xl p-4 bg-yellow-500/20 border border-yellow-400/50">
+            <div className="text-2xl">🎁 Presente desbloqueado!</div>
+            <div className="text-sm text-white/80">+100 pontos bônus</div>
+          </div>
           <div className="flex gap-3">
             <button onClick={() => setEstado('selecao_nicho')} className="glass-btn flex-1">Menu</button>
             <button onClick={proximaFase} className="glass-btn flex-1 bg-green-500/30">Próxima Fase</button>
@@ -76,6 +111,10 @@ export default function GameBoard() {
           <div className="text-7xl">👑</div>
           <h2 className="text-4xl font-black">Zerou o Nicho!</h2>
           <p className="text-white/80">Você completou todas as 10 fases</p>
+          <div className="glass rounded-xl p-4 bg-yellow-500/20 border border-yellow-400/50">
+            <div className="text-2xl">🎁 Presente Lendário!</div>
+            <div className="text-sm text-white/80">+500 pontos bônus</div>
+          </div>
           <button onClick={() => setEstado('selecao_nicho')} className="glass-btn w-full">
             Escolher Outro Nicho
           </button>
