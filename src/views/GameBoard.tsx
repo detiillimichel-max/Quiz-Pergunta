@@ -13,7 +13,7 @@ export default function GameBoard() {
 
   if (estado === 'selecao_nicho') {
     return (
-      <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center p-4 text-white">
         <GlassCard className="max-w-lg w-full">
           <h2 className="text-3xl font-bold mb-6 text-center">Escolha o Nicho</h2>
           <div className="grid grid-cols-2 gap-4">
@@ -39,7 +39,7 @@ export default function GameBoard() {
 
   if (estado === 'game_over') {
     return (
-      <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center p-4 text-white">
         <GlassCard className="max-w-md w-full text-center space-y-6">
           <div className="text-7xl">💀</div>
           <h2 className="text-4xl font-black">Game Over</h2>
@@ -55,7 +55,7 @@ export default function GameBoard() {
 
   if (estado === 'fase_concluida') {
     return (
-      <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center p-4 text-white">
         <GlassCard className="max-w-md w-full text-center space-y-6">
           <div className="text-7xl">🏆</div>
           <h2 className="text-4xl font-black">Fase {faseId} Completa!</h2>
@@ -71,7 +71,7 @@ export default function GameBoard() {
 
   if (estado === 'vitoria') {
     return (
-      <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center p-4 text-white">
         <GlassCard className="max-w-md w-full text-center space-y-6">
           <div className="text-7xl">👑</div>
           <h2 className="text-4xl font-black">Zerou o Nicho!</h2>
@@ -88,30 +88,30 @@ export default function GameBoard() {
   const nicho = getNichoAtual()
 
   return (
-    <div className="min-h-screen p-4 pb-8">
-      <div className="max-w-md mx-auto space-y-4">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 p-4 pb-8 text-white">
+      <div className="max-w-2xl mx-auto space-y-6">
         <div className="flex justify-between items-center text-sm">
-          <div className="glass rounded-xl px-3 py-1">
-            <span className="font-bold text-yellow-400">{pontos}</span> pts
+          <div className="glass rounded-xl px-4 py-2">
+            <span className="font-bold text-yellow-400 text-lg">{pontos}</span> pts
           </div>
-          <div className="glass rounded-xl px-3 py-1" style={{ color: nicho?.cor }}>
-            {nicho?.icone} {nicho?.nome}
+          <div className="glass rounded-xl px-4 py-2" style={{ color: nicho?.cor }}>
+            <span className="text-lg">{nicho?.icone} {nicho?.nome}</span>
           </div>
-          <div className="glass rounded-xl px-3 py-1">
-            ❤️ {3 - erros}/3
+          <div className="glass rounded-xl px-4 py-2">
+            <span className="text-lg">❤️ {3 - erros}/3</span>
           </div>
         </div>
 
-        <div className="glass rounded-xl px-4 py-2 text-center text-sm">
-          Fase {faseId} - Pergunta {perguntaIndex + 1}/10
+        <div className="glass rounded-xl px-4 py-3 text-center">
+          <span className="text-lg font-semibold">Fase {faseId} - Pergunta {perguntaIndex + 1}/10</span>
         </div>
 
         <Timer />
 
         <AnimatePresence mode="wait">
           <motion.div key={pergunta?.id}>
-            <GlassCard className="min-h-[120px] flex items-center">
-              <p className="text-xl font-semibold text-center w-full">{pergunta?.texto}</p>
+            <GlassCard className="min-h-[200px] flex items-center p-8">
+              <p className="text-2xl md:text-3xl font-bold text-center w-full">{pergunta?.texto}</p>
             </GlassCard>
           </motion.div>
         </AnimatePresence>
@@ -119,9 +119,9 @@ export default function GameBoard() {
         <AnswerInput />
 
         {pergunta?.dica && (
-          <details className="glass rounded-xl p-4 text-sm">
-            <summary className="cursor-pointer font-semibold">💡 Dica</summary>
-            <p className="mt-2 text-white/80">{pergunta.dica}</p>
+          <details className="glass rounded-xl p-4">
+            <summary className="cursor-pointer font-semibold text-lg">💡 Dica</summary>
+            <p className="mt-3 text-white/80">{pergunta.dica}</p>
           </details>
         )}
       </div>
