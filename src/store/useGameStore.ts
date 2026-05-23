@@ -121,6 +121,6 @@ export const useGameStore = create<GameState>()(
         return nicho?.fases.find(f => f.id === get().faseId)
       }
     }),
-    { name: 'Pakavra-quiz-v2' }
+    { name: 'Pakavra-quiz-v3' }
   )
 )
