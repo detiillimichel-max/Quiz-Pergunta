@@ -3,7 +3,7 @@ import GlassCard from '../components/GlassCard'
 import { useGameStore } from '../store/useGameStore'
 
 export default function Apresentacao() {
-  const { setEstado, progresso } = useGameStore()
+  const { setEstado, progresso, faseId } = useGameStore()
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
@@ -26,7 +26,9 @@ export default function Apresentacao() {
             <div className="text-white/60">Pontos totais</div>
           </div>
           <div className="glass rounded-xl p-3">
-            <div className="text-2xl font-bold">25s</div>
+            <div className="text-2xl font-bold">
+              {faseId === 1 ? '25s' : '15s'}
+            </div>
             <div className="text-white/60">Por pergunta</div>
           </div>
         </div>
